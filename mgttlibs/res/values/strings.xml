@@ -1,0 +1,4 @@
+<resources>
+    <string name="downloading">正在下载更新</string>
+    <string name="wait_moment">请稍候</string>
+</resources>
