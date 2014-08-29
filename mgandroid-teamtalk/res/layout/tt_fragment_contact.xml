@@ -23,19 +23,22 @@
         android:textColorHint="@color/default_key_color"
         android:textSize="14sp" />
 
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/contact_list_item_bk" >
+
         <ListView
             android:id="@+id/all_contact_list"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
-            android:background="@color/contact_list_item_bk"
             android:divider="@null" />
 
         <ListView
             android:id="@+id/department_contact_list"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@color/contact_list_item_bk"
             android:layout_gravity="center"
             android:divider="@null"
             android:visibility="gone" />
@@ -58,5 +61,6 @@
             android:layout_gravity="right|center"
             android:layout_marginBottom="3dp"
             android:layout_marginTop="26dp" />
+    </FrameLayout>
 
 </LinearLayout>

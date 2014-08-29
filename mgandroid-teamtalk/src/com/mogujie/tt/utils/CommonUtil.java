@@ -2,9 +2,6 @@
 package com.mogujie.tt.utils;
 
 import java.io.File;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -142,59 +139,6 @@ public class CommonUtil {
     }
 
     /**
-     * @Description 判断是否是url
-     * @param text
-     * @return
-     */
-    private static String matchUrl(String text) {
-        if (TextUtils.isEmpty(text)) {
-            return null;
-        }
-        Pattern p = Pattern.compile(
-                "[http]+[://]+[0-9A-Za-z:/[-]_#[?][=][.][&]]*",
-                Pattern.CASE_INSENSITIVE);
-        Matcher matcher = p.matcher(text);
-        if (matcher.find()) {
-            return matcher.group();
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * @Description 返回匹配到的URL
-     * @param text
-     * @param cmpUrl
-     * @return
-     */
-    private static String getMatchUrl(String text, String cmpUrl) {
-        String url = matchUrl(text);
-        if (url != null && url.contains(cmpUrl)) {
-            return url;
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * @Description 链接跳转处理
-     * @param content
-     */
-    public static void skipLink(Context cxt, String content) {
-        String detailUrl = "";
-        String orderUrl = "";
-        String httpUrl = "";
-        if (!TextUtils.isEmpty(detailUrl = getMatchUrl(content, SysConstant.DETAIL_HOST))) {
-            toDetailPage(cxt, getGoodsId(detailUrl));
-        } else if (!TextUtils.isEmpty(orderUrl = getMatchUrl(content, SysConstant.ORDER_HOST))) {
-            toOrderPage(cxt, getOrderId(orderUrl));
-            // toWebPage(cxt, orderUrl);
-        } else if (!TextUtils.isEmpty(httpUrl = matchUrl(content))) {
-            toWebPage(cxt, httpUrl);
-        }
-    }
-
-    /**
      * @Description 用iid跳转到主客户端的detail页面
      * @param context
      * @param iid
@@ -210,72 +154,6 @@ public class CommonUtil {
         String uriStr = "mgjclient://detail?iid=" + iid;
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(uriStr));
         context.startActivity(i);
-    }
-
-    /**
-     * @Description 跳转到订单页
-     * @param context
-     * @param orderId
-     */
-    private static void toOrderPage(Context context, String orderId) {
-        if (TextUtils.isEmpty(orderId)) {
-            PinkToast.makeText(context,
-                    context.getResources().getString(R.string.invalid_order_url),
-                    Toast.LENGTH_SHORT).show();
-            return;
-        }
-        String uriStr = "mgjclient://order?orderId=" + orderId;
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(uriStr));
-        context.startActivity(i);
-    }
-
-    /**
-     * @Description web页面跳转
-     * @param ctx
-     * @param url
-     */
-    public static void toWebPage(Context context, String url) {
-        if (TextUtils.isEmpty(url)) {
-            return;
-        }
-        String uriStr = "mgjclient://web?url=" + url;
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(uriStr));
-        context.startActivity(i);
-    }
-
-    /**
-     * @Description
-     * @param 获取订单id url
-     *            http://www.mogujie.com/trade/order/detail4buyer?orderId=
-     *            32990496
-     * @return
-     */
-    private static String getOrderId(String url) {
-        String id = url.substring(url.lastIndexOf("=") + 1);
-        return id;
-    }
-
-    /**
-     * @Description 获取商品详情信息中的id信息
-     * @param url http://shop.mogujie.com/detail/16mg5iw/
-     *            http://shop.mogujie.com/detail/16mg5iw?asdf
-     *            http://shop.mogujie.com/detail/16mg5iw
-     * @return
-     */
-    private static String getGoodsId(String url) {
-        String[] strArray = url.split(SysConstant.DETAIL_URL);
-        String id = null;
-        if (strArray.length == 2) {
-            id = strArray[1];
-            int pSplit = id.indexOf("/");
-            int pParam = id.indexOf("?");
-            if (pSplit > 0) {
-                id = id.substring(0, pSplit);
-            } else if (pParam > 0) {
-                id = id.substring(0, pParam);
-            }
-        }
-        return id;
     }
 
     public static String getImageSavePath(String fileName) {

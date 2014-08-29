@@ -16,22 +16,13 @@ public class SysConstant {
     public static final int DEFAULT_MESSAGE_ID = -1;
 
     public static final String PREVIEW_TEXT_CONTENT = "content";
-    
+
     public static final int CHAT_SEARCH_RESULT_TYPE_RESULT = 0;
     public static final int CHAT_SEARCH_RESULT_TYPE_CATEGORY = 1;
-    
 
     public static final String CONTACT_ACTIVITY = "com.mogujie.tt.ui.activity.ContactFragmentActivity"; // 用它给getClassName作对比，包名改变时注意同步
 
     public static final String MESSAGE_ACTIVITY = "com.mogujie.tt.ui.activity.MessageActivity";
-
-    public static final String ORDER_URL = "http://www.mogujie.com/trade/order/detail4buyer";
-    public static final String ORDER_HOST = "www.mogujie.com/trade/order/detail4buyer";
-
-    public static final String DETAIL_URL = "http://shop.mogujie.com/detail/";
-    public static final String DETAIL_HOST = "shop.mogujie.com/detail";
-
-    public static final String TUANGOU_URL = "mogujie.com/tuan/detail/";
 
     // 图片消息占位符
     public static final String MESSAGE_IMAGE_LINK_START = "&$#@~^@[{:";
@@ -133,10 +124,9 @@ public class SysConstant {
     public static final int WEB_IMAGE_MIN_WIDTH = 100;
     public static final int WEB_IMAGE_MIN_HEIGHT = 100;
 
-    public static final String UPLOAD_IMAGE_HOST = "http://www.mogujie.com/upload/addpic/";
-    public static final String AUTH_HOST = "http://www.mogujie.com/user/zlogin/";
-    public static final String CONVERT_TOKEN_HOST = "http://www.mogujie.com/mtalk/iauth";
-    public static final String DETAULT_PORTRAIT_URL = "http://s2.mogujie.cn/avatar/girl_avatar_default.jpg_64x64.jpg";
+    public static final String UPLOAD_IMAGE_HOST = "";// 图片服务器
+    public static final String AUTH_HOST = "";// 登陆验证服务器
+    public static final String DETAULT_PORTRAIT_URL = "";// 默认用户头像地址
 
     public static final String CHOOSE_CONTACT = "CHOOSE_CONTACT";
     public static final String READCOUNT = "READ_COUNT";
@@ -145,10 +135,6 @@ public class SysConstant {
     public static final String MSG_SERVER_INFO_IP2 = "MSG_SERV_INFO_IP2";
     public static final String MSG_SERVER_INFO_PORT = "MSG_SERV_INFO_PORT";
 
-    // public static final String LOGIN_IP = "122.225.67.108";
-    // public static final int LOGIN_PORT = 8008;
-    // public static final String LOGIN_IP = "122.225.67.109";
-    // public static final int LOGIN_PORT = 80;
     public static final String DEFAULT_AUDIO_SUFFIX = ".spx";
     public static final int MAX_RECONNECT_COUNT = 10;
     public static final int MAX_HEART_BEAT_TIME = 60;
@@ -198,13 +184,12 @@ public class SysConstant {
 
     public static final String APPLICATION_PACKAGE_NAME = "com.mogujie.tt";
 
-    public static final String INTERNAL_PAGE_URL = "http://www.mogujie.org";
+    public static final String INTERNAL_PAGE_URL = "";// 内网地址
 
     public static final String USER_DETAIL_PARAM = "FROM_PAGE";
 
     public static final int ALBUM_PREVIEW_BACK = 3;
     public static final int ALBUM_BACK_DATA = 5;
-    
 
     public static final int GROUP_MANAGER_ADD_RESULT = 6;
 

@@ -634,13 +634,6 @@ public class MessageAdapter extends BaseAdapter {
                     }
                 });
 
-        holder.message_content.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                CommonUtil.skipLink(context, info.getMsgContent());
-            }
-        });
         holder.message_content.setOnTouchListener(new onDoubleClick(info.getMsgContent()));
     }
 
